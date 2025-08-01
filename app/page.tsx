@@ -1,103 +1,138 @@
-import Image from "next/image";
+import { Metadata } from 'next'
+import { StarryBackground } from '@/components/starry-background'
+import { CelestialHeader } from '@/components/celestial-header'
+import { DreamProductGrid } from '@/components/dream-product-grid'
+
+export const metadata: Metadata = {
+  title: '夢境市集 | Dream Market',
+  description: '在夢境中尋找您心愛的寶物，體驗超現實的購物之旅',
+  keywords: '夢境, 購物, 電商, 超現實, 藝術',
+  openGraph: {
+    title: '夢境市集 - 超現實購物體驗',
+    description: '在夢境中尋找您心愛的寶物，體驗超現實的購物之旅',
+    type: 'website',
+  }
+}
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Starry Background */}
+      <StarryBackground />
+      
+      {/* Main Content */}
+      <div className="relative z-10">
+        {/* Celestial Header */}
+        <CelestialHeader />
+        
+        {/* Hero Section */}
+        <section className="relative py-20 px-4">
+          <div className="container mx-auto text-center">
+            <h1 
+              className="text-5xl md:text-7xl font-light text-slate-100 mb-6"
+              style={{
+                textShadow: '0 0 30px rgba(248, 248, 255, 0.8)'
+              }}
+            >
+              夢境市集
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-300 font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+              歡迎來到超現實的購物空間，每一件商品都漂浮在夢境的雲朵上，
+              等待與您在星空中相遇
+            </p>
+            
+            {/* Floating elements */}
+            <div className="relative">
+              <div 
+                className="absolute -top-10 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"
+                style={{
+                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.8)',
+                  animation: 'float 6s ease-in-out infinite'
+                }}
+              />
+              <div 
+                className="absolute -top-6 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
+                style={{
+                  boxShadow: '0 0 10px rgba(34, 211, 238, 0.8)',
+                  animation: 'float 8s ease-in-out infinite 2s'
+                }}
+              />
+              <div 
+                className="absolute -bottom-8 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse"
+                style={{
+                  boxShadow: '0 0 12px rgba(244, 114, 182, 0.8)',
+                  animation: 'float 7s ease-in-out infinite 1s'
+                }}
+              />
+            </div>
+          </div>
+        </section>
+        
+        {/* Product Grid */}
+        <DreamProductGrid />
+        
+        {/* Dream Footer */}
+        <footer className="relative py-16 px-4">
+          <div className="container mx-auto">
+            {/* Horizon gradient */}
+            <div 
+              className="h-px mb-8"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(248, 248, 255, 0.3) 20%, rgba(147, 51, 234, 0.5) 50%, rgba(78, 205, 196, 0.5) 80%, transparent 100%)'
+              }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            
+            {/* Footer Content */}
+            <div className="text-center space-y-6">
+              <div className="flex justify-center space-x-8 flex-wrap">
+                {[
+                  { name: '關於夢境', href: '/about' },
+                  { name: '聯絡我們', href: '/contact' },
+                  { name: '夢境指南', href: '/guide' },
+                  { name: '隱私政策', href: '/privacy' }
+                ].map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-slate-400 hover:text-slate-200 font-light transition-all duration-300"
+                    style={{
+                      textShadow: '0 0 10px rgba(248, 248, 255, 0.3)'
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+              
+              {/* Social Media Stars */}
+              <div className="flex justify-center space-x-6">
+                {['Facebook', 'Instagram', 'Twitter'].map((social) => (
+                  <div
+                    key={social}
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/30 to-cyan-500/30 flex items-center justify-center border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300 cursor-pointer"
+                    style={{
+                      boxShadow: '0 0 15px rgba(147, 51, 234, 0.3)'
+                    }}
+                  >
+                    <div className="w-2 h-2 bg-slate-300 rounded-full" />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Copyright with stardust font */}
+              <p 
+                className="text-slate-500 font-light text-sm"
+                style={{
+                  textShadow: '0 0 8px rgba(248, 248, 255, 0.2)'
+                }}
+              >
+                © 2024 夢境市集 Dream Market. 在夢境中創造美好回憶
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+      
     </div>
-  );
+  )
 }
